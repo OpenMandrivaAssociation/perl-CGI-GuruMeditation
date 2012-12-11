@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	%mkrel 2
+Release:	3
 
 Summary:	Guru Meditation for CGIs
 License:	GPL+ or Artistic
@@ -11,8 +11,8 @@ Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	http://search.cpan.org/CPAN/authors/id/R/RS/RSE/%{upstream_name}-%{upstream_version}.tar.bz2
 
+BuildRequires:	perl-devel
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This is a small module accompanying the CGI module, providing the display of an
@@ -33,19 +33,40 @@ environment.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
-%clean 
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc README
 %{perl_vendorlib}/CGI/*
 %{_mandir}/*/*
+
+
+%changelog
+* Sat May 28 2011 Funda Wang <fwang@mandriva.org> 1.100.0-2mdv2011.0
++ Revision: 680689
+- mass rebuild
+
+* Tue Jul 28 2009 Jérôme Quelin <jquelin@mandriva.org> 1.100.0-1mdv2011.0
++ Revision: 402132
+- rebuild using %%perl_convert_version
+
+* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 1.10-3mdv2009.0
++ Revision: 241167
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Tue May 15 2007 Oden Eriksson <oeriksson@mandriva.com> 1.10-1mdv2008.0
++ Revision: 26912
+- Import perl-CGI-GuruMeditation
+
+
+
+* Tue May 15 2007 Oden Eriksson <oeriksson@mandriva.com> 1.10-1mdv2007.1
+- initial Mandriva package
