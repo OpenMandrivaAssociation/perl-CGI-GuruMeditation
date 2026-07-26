@@ -1,15 +1,13 @@
 %define upstream_name    CGI-GuruMeditation
-%define upstream_version 1.10
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	6
+Version:	1.10
+Release:	7
 
 Summary:	Guru Meditation for CGIs
 License:	GPL+ or Artistic
 Group:		Development/Perl
 URL:		https://metacpan.org/dist/CGI-GuruMeditation
-Source0:	https://cpan.metacpan.org/authors/id/R/RS/RSE/CGI-GuruMeditation-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/R/RS/RSE/CGI-GuruMeditation-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -31,7 +29,7 @@ This module supports both the regular CGI and the Apache/mod_perl CGI
 environment.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -53,9 +51,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Tue Jul 28 2009 Jérôme Quelin <jquelin@mandriva.org> 1.100.0-1mdv2011.0
 + Revision: 402132
-- rebuild using %%perl_convert_version
-
-* Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 1.10-3mdv2009.0
+- rebuild using %1.10 Wed Jul 23 2008 Thierry Vignaud <tv@mandriva.org> 1.10-3mdv2009.0
 + Revision: 241167
 - rebuild
 - kill re-definition of %%buildroot on Pixel's request
