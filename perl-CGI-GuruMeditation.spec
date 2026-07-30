@@ -1,13 +1,14 @@
 %define upstream_name    CGI-GuruMeditation
+%define upstream_version 1.10
 Name:		perl-%{upstream_name}
 Version:	1.10
-Release:	7
+Release:	1
 
 Summary:	Guru Meditation for CGIs
 License:	GPL+ or Artistic
 Group:		Development/Perl
 URL:		https://metacpan.org/dist/CGI-GuruMeditation
-Source0:	https://cpan.metacpan.org/authors/id/R/RS/RSE/CGI-GuruMeditation-%{version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/R/RS/RSE/CGI-GuruMeditation-1.10.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
